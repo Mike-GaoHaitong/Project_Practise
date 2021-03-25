@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-router.get('/',(req,res) => {
-    res.status(200).json({success: "true", message:"customer detail"})
-})
+var customerController = require('../controllers/customerController');
 
-router.post('/login',(req,res) => {
-    res.status(200).json({success: "true", message:"login page"})
-})
+router.get('/',customerController.customerDetailGet);
+
+router.post('/login',customerController.customerLoginPost);
 
 module.exports = router;
